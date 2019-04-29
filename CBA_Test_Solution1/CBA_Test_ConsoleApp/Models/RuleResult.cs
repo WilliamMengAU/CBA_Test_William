@@ -33,7 +33,7 @@ namespace CBA_Test_ConsoleApp.Models
             }
         }
 
-        public string JsonStr()
+        public string ToJsonStr()
         {
             JavaScriptSerializer js = new JavaScriptSerializer();
             return js.Serialize(this);

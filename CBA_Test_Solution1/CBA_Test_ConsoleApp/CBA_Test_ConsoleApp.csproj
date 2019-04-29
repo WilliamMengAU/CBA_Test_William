@@ -48,6 +48,7 @@
     <Compile Include="Models\CountingMethods.cs" />
     <Compile Include="Models\CountingRules.cs" />
     <Compile Include="Models\ICountingMethods.cs" />
+    <Compile Include="Models\ProcessRulesResult.cs" />
     <Compile Include="Models\PublicFunctions.cs" />
     <Compile Include="Models\RuleResult.cs" />
     <Compile Include="Models\RulesDefine.cs" />

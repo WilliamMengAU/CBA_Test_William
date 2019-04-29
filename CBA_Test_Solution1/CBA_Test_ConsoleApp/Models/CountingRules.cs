@@ -75,21 +75,36 @@ namespace CBA_Test_ConsoleApp.Models
             return inputRules;
         }
 
-        public void ProcessRules(List<string> words, RulesDefine inputRules)
+        public ProcessRulesResult ProcessRules(List<string> words, RulesDefine inputRules)
         {
+            ProcessRulesResult processRulesResult = new ProcessRulesResult();
+
             // input check
-            if (null == words || null == inputRules) return;
-            if (0 == words.Count() || null == inputRules.Rules) return;
+            if (null == words || null == inputRules) return processRulesResult;
+            if (0 == words.Count() || null == inputRules.Rules) return processRulesResult;
 
             Type ICountingMethodsType = typeof(ICountingMethods);
 
             foreach (var rule in inputRules.Rules)
             {
+                bool validRule = true;
+
                 try
                 {
-                    if (null == rule) continue;
-                    if (!rule.Enable) continue;
-                    if (!rule.BasicValid()) continue;
+                    if (null == rule) validRule = false;
+                    else if (!rule.BasicValid()) validRule = false;
+
+                    if (!validRule)
+                    {
+                        processRulesResult.TotalFailedRules++;
+                        continue;
+                    }
+
+                    if (!rule.Enable)
+                    {
+                        processRulesResult.TotalDisabledRules++;
+                        continue;
+                    }
 
                     MethodInfo countingMethod = ICountingMethodsType.GetMethod(rule.RuleTypeName);
 
@@ -105,23 +120,34 @@ namespace CBA_Test_ConsoleApp.Models
                         ruleResult = (RuleResult)countingMethod.Invoke(countingMethods, new object[] { words, rule });
                     }
 
-                    Console.WriteLine(rule.RuleName + " --- " + ruleResult.JsonStr());
+                    Console.WriteLine(rule.RuleName + " --- " + ruleResult.ToJsonStr());
 
                     File.WriteAllText(rule.OutputFileName, ruleResult.OutputStr());
+
+                    if (ruleResult.ResultCode == RuleResultCode.Success) processRulesResult.TotalSuccessRules++;
+                    else processRulesResult.TotalFailedRules++;
                 }
                 catch (Exception e)
                 {
+                    processRulesResult.TotalFailedRules++;
+
                     Console.WriteLine(rule.RuleName + " --- ");
                     Console.WriteLine(CountingRules.APPLICATION_EXCEPTION);
                     Console.WriteLine(e.ToString());
                 }
                 finally
                 {
-
+                    processRulesResult.TotalRules++;
                 }
             }
 
-            return;
+            int enabledRulesCount = processRulesResult.TotalRules - processRulesResult.TotalDisabledRules;
+
+            if (enabledRulesCount == processRulesResult.TotalSuccessRules) processRulesResult.ResultCode = ProcessRulesResultCode.Success;
+            else if(enabledRulesCount == processRulesResult.TotalFailedRules) processRulesResult.ResultCode = ProcessRulesResultCode.AllFailed;
+            else processRulesResult.ResultCode = ProcessRulesResultCode.PartlyError;
+
+            return processRulesResult;
         }
 
     }

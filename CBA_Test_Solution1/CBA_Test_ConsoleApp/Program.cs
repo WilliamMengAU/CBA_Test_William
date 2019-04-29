@@ -21,7 +21,7 @@ namespace CBA_Test_ConsoleApp
 
             string inputFileName = CountingRules.INPUT_FILE_NAME_DEFAULT;
             string rulesDefineFileName = CountingRules.RULES_DEFINE_FILE_NAME;
-            
+
             do
             {
                 try
@@ -42,9 +42,11 @@ namespace CBA_Test_ConsoleApp
 
                     var inputStrList = inputStr.Split(CountingRules.SEPARATOR, StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                    countingRules.ProcessRules(inputStrList, inputRules);
+                    ProcessRulesResult processRulesResult = countingRules.ProcessRules(inputStrList, inputRules);
+
+                    Console.WriteLine(processRulesResult.ToJsonStr());
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     Console.WriteLine(CountingRules.APPLICATION_EXCEPTION);
                     Console.WriteLine(e.ToString());

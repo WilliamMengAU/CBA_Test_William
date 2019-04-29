@@ -6,8 +6,8 @@ Test projects for CBA
 
 #### Requirement: ####
 
-- ;
-- ;
+- Run counting rules;
+- easily add, stop ...;
 
 
 
