@@ -13,7 +13,8 @@ namespace CBA_Test_ConsoleApp
     {
         public const ConsoleKey QUIT_KEY = ConsoleKey.Q;
         public const string PROMPT = "Press Q key to Exit.\r\nPress any key do another counting.";
-        public const string PROMPT_REPLACE_INPUT = "The contents of InputTextFile.txt and RulesDefine.json can be replaced for do a new counting task.";
+        public const string PROMPT_REPLACE_INPUT = "The contents of InputTextFile.txt and RulesDefine.json can be replaced " +
+            "before you press any key to do a new counting task.";
 
         static void Main(string[] args)
         {

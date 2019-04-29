@@ -13,6 +13,10 @@ namespace CBA_Test_ConsoleApp.Models
         public List<RuleDefine> Rules { get; set; }
     }
 
+    //- The StartCharsList supports multi chars match. StartCharsList[i] match word[i].
+    //- The FollowingWordsStartCharsList supports multi following words match.
+    //  FollowingWordsStartCharsList[i] match word[i+1].
+
     public class RuleDefine
     {
         #region properties
