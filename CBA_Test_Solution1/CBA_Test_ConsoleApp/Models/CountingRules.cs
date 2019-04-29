@@ -94,15 +94,15 @@ namespace CBA_Test_ConsoleApp.Models
                     if (null == rule) validRule = false;
                     else if (!rule.BasicValid()) validRule = false;
 
-                    if (!validRule)
-                    {
-                        processRulesResult.TotalFailedRules++;
-                        continue;
-                    }
-
                     if (!rule.Enable)
                     {
                         processRulesResult.TotalDisabledRules++;
+                        continue;
+                    }
+
+                    if (!validRule)
+                    {
+                        processRulesResult.TotalFailedRules++;
                         continue;
                     }
 
