@@ -1,0 +1,30 @@
+{
+  "Rules": [
+    {
+      "RuleName": "Counting rule 1",
+      "RuleTypeName": "average_length_of_words_starts_with",
+      "Enable": true,
+      "StartCharsList": [
+        [ "a", "A" ],
+        [ "g", "G" ]
+      ],
+      "OutputFileName": "average_length_of_words_starts_with_ag.txt"
+    },
+    {
+      "RuleName": "Counting rule 4 Example",
+      "RuleTypeName": "count_of_sequence_of_words_starting_with_chars_list",
+      "Enable": true,
+      "StartCharsList": [
+        [ "a", "A" ],
+        [ "g", "G" ]
+      ],
+      "FollowingWordsStartCharsList": [
+        [
+          [ "b", "B" ],
+          [ "c", "C" ]
+        ]
+      ],
+      "OutputFileName": "count_of_sequence_of_words_starting_with_ag_and_bc.txt"
+    }
+  ]
+}

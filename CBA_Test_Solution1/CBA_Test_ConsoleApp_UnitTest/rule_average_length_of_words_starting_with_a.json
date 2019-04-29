@@ -1,0 +1,9 @@
+{
+  "RuleName": "Counting rule 1",
+  "RuleTypeName": "average_length_of_words_starting_with_chars",
+  "Enable": true,
+  "StartCharsList": [
+    [ "a", "A" ]
+  ],
+  "OutputFileName": "average_length_of_words_starting_with_a.txt"
+}
