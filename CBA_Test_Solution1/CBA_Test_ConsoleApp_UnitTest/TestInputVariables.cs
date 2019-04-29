@@ -12,6 +12,8 @@ namespace CBA_Test_ConsoleApp_UnitTest
 {
     public class TestInputVariables
     {
+        public const string RulesDefineFileName_Test = "RulesDefine_Test.json";
+
         const string RuleFile_average_length_of_words_starting_with = "rule_average_length_of_words_starting_with_a.json";
 
         static JavaScriptSerializer js = new JavaScriptSerializer();

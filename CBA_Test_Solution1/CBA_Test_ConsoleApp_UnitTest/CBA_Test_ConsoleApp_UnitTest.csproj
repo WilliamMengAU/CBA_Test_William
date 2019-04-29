@@ -56,6 +56,9 @@
     <Compile Include="ICountingMethodsTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="RulesDefine_Test.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="rule_average_length_of_words_starting_with_a.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

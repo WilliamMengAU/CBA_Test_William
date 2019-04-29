@@ -21,5 +21,6 @@ namespace CBA_Test_ConsoleApp_UnitTest
             Assert.AreEqual(RuleResultCode.Success, ruleResult.ResultCode);
             Assert.AreEqual("4.6", ruleResult.OutputStr());
         }
+
     }
 }
