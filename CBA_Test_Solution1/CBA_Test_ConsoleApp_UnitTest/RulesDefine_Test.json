@@ -1,0 +1,46 @@
+{
+  "Rules": [
+    {
+      "RuleName": "Counting rule 1",
+      "RuleTypeName": "average_length_of_words_starting_with_chars",
+      "Enable": true,
+      "StartCharsList": [
+        [ "a", "A" ]
+      ],
+      "OutputFileName": "average_length_of_words_starting_with_a.txt"
+    },
+    {
+      "RuleName": "Counting rule 2",
+      "RuleTypeName": "count_of_char_in_words_starting_with_chars",
+      "Enable": true,
+      "StartCharsList": [
+        [ "b", "B" ]
+      ],
+      "CountTotalNumberChars": [ "e", "E" ],
+      "OutputFileName": "count_of_e_in_words_starting_with_b.txt"
+    },
+    {
+      "RuleName": "Counting rule 3",
+      "RuleTypeName": "longest_words_starting_with_chars",
+      "Enable": true,
+      "StartCharsList": [
+        [ "a", "b", "c" ]
+      ],
+      "OutputFileName": "longest_words_starting_with_abc.txt"
+    },
+    {
+      "RuleName": "Counting rule 4",
+      "RuleTypeName": "count_of_sequence_of_words_starting_with_chars_list",
+      "Enable": true,
+      "StartCharsList": [
+        [ "c", "C" ]
+      ],
+      "FollowingWordsStartCharsList": [
+        [
+          [ "a", "A" ]
+        ]
+      ],
+      "OutputFileName": "count_of_sequence_of_words_starting_with_c_and_a.txt"
+    }
+  ]
+}
