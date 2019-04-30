@@ -136,10 +136,11 @@ namespace CBA_Test_ConsoleApp.Models
                 }
                 finally
                 {
-                    processRulesResult.TotalRules++;
+                    
                 }
             }
 
+            processRulesResult.TotalRules = inputRules.Rules.Count();
             int enabledRulesCount = processRulesResult.TotalRules - processRulesResult.TotalDisabledRules;
 
             if (enabledRulesCount == processRulesResult.TotalSuccessRules) processRulesResult.ResultCode = ProcessRulesResultCode.Success;
